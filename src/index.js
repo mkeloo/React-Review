@@ -9,7 +9,7 @@ import './index.css';
 // setup vars
 const firstBook = {
   img: 'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg',
-  author: 'Jose Artillo',
+  author: 'Jose Maria Artillo',
   title: 'Hello World Book Title',
   place: 'London, United Kingdom',
 };
@@ -40,13 +40,14 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
+const Book = ({ img, title, author, place }) => {
+  // const { img, title, author, place } = props;
   return (
     <article className="book">
-      <img style={{ borderRadius: '5rem 2rem' }} src={props.img} alt="Book" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
-      <h5 className="place">{props.place}</h5>
+      <img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      <h5 className="place">{place}</h5>
       {/* <p>{props.job}</p>
       <p>{props.title}</p>
       <p>{props.number}</p> */}

@@ -1,17 +1,48 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+// CSS
+import './index.css';
+
+// Mini Book Project
+
+// setup vars
+const author = 'Jose Artillo';
+const place = 'London, United Kingdom';
+const title = 'Hello World Book Title';
+const img =
+  'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg';
+
+function BookList() {
+  return (
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
+
+const Book = () => {
+  return (
+    <article className="book">
+      <img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+      <h1>{title}</h1>
+      <Author />
+      <h5 className="place">{place.toUpperCase()}</h5>
+    </article>
+  );
+};
+
+const Author = () => (
+  <h4 style={{ color: '#617d98', fontSize: '1.2rem', marginTop: '0.25rem' }}>
+    {author}
+  </h4>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDom.render(<BookList />, document.getElementById('root'));

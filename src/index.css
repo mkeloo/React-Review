@@ -38,8 +38,13 @@ body {
 
 .book h4 {
   color: #617d98;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
+}
+
+.book img {
+  width: 500px;
+  height: 300px;
 }
 
 .place {

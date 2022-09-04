@@ -279,6 +279,7 @@ place: 'Jacksonville, USA',
 
 function BookList() {
 return (
+
 <section className="booklist">
 <Book
         img={firstBook.img}
@@ -305,6 +306,7 @@ at.
 const Book = ({ img, title, author, place, children }) => {
 // const { img, title, author, place, children } = props;
 return (
+
 <article className="book">
 <img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
 <h1>{title}</h1>
@@ -317,3 +319,351 @@ return (
 </article>
 );
 };
+
+<!-- Proper List -->
+
+// Mini Book Project
+
+// setup vars
+const books = [
+{
+img: 'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg',
+author: 'Jose Maria Artillo',
+title: 'Hello World Book Title',
+place: 'London, United Kingdom',
+},
+
+{
+img: 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/3:2/w_1998,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+author: 'J.D. Salinger',
+title: 'Catcher of the Rye',
+place: 'Jacksonville, USA',
+},
+
+{
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+
+{
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+];
+
+function BookList() {
+return (
+
+<section className="booklist">
+{books.map((book) => {
+// const { img, title, author, place } = book;
+return <Book book={book}></Book>;
+})}
+</section>
+);
+}
+
+const Book = (props) => {
+const { img, title, author, place } = props.book;
+return (
+
+<article className="book">
+<img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+<h1>{title}</h1>
+<h4>{author}</h4>
+<h5 className="place">{place}</h5>
+</article>
+);
+};
+
+<!-- Key Prop -->
+
+// Mini Book Project
+
+// setup vars
+const books = [
+{
+id: 1,
+img: 'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg',
+author: 'Jose Maria Artillo',
+title: 'Hello World Book Title',
+place: 'London, United Kingdom',
+},
+
+{
+id: 2,
+img: 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/3:2/w_1998,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+author: 'J.D. Salinger',
+title: 'Catcher of the Rye',
+place: 'Jacksonville, USA',
+},
+
+{
+id: 3,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+
+{
+id: 4,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+];
+
+function BookList() {
+return (
+
+<section className="booklist">
+{books.map((book) => {
+// const { img, title, author, place } = book;
+return <Book key={book.id} book={book}></Book>;
+})}
+</section>
+);
+}
+
+const Book = (props) => {
+const { img, title, author, place } = props.book;
+return (
+
+<article className="book">
+<img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+<h1>{title}</h1>
+<h4>{author}</h4>
+<h5 className="place">{place}</h5>
+</article>
+);
+};
+
+<!-- Spread Operator -->
+
+function BookList() {
+return (
+
+<section className="booklist">
+{books.map((book) => {
+// const { img, title, author, place } = book;
+return <Book key={book.id} {...book}></Book>;
+})}
+</section>
+);
+}
+
+const Book = (props) => {
+console.log(props);
+const { img, title, author, place } = props;
+return (
+
+<article className="book">
+<img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+<h1>{title}</h1>
+<h4>{author}</h4>
+<h5 className="place">{place}</h5>
+</article>
+);
+};
+
+<!-- Event Basics -->
+
+// Mini Book Project
+
+// setup vars
+const books = [
+{
+id: 1,
+img: 'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg',
+author: 'Jose Maria Artillo',
+title: 'Hello World Book Title',
+place: 'London, United Kingdom',
+},
+
+{
+id: 2,
+img: 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/3:2/w_1998,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+author: 'J.D. Salinger',
+title: 'Catcher of the Rye',
+place: 'Jacksonville, USA',
+},
+
+{
+id: 3,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+
+{
+id: 4,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'T.R.R.M',
+title: 'House of the Dragon',
+place: "King's Landing",
+},
+];
+
+function BookList() {
+return (
+
+<section className="booklist">
+{books.map((book) => {
+// const { img, title, author, place } = book;
+return <Book key={book.id} {...book}></Book>;
+})}
+</section>
+);
+}
+
+const Book = ({ img, title, author, place }) => {
+// Attribute, eventHandler
+// onClick, onMouseOver
+// setup handler as reference or inline function
+
+// simple function event handler example
+const clickHandler = (e) => {
+console.log(e);
+console.log(e.target);
+alert('Hello World');
+};
+
+// more complex event handler example
+const complexExample = (author) => {
+console.log(author);
+};
+
+return (
+
+<article
+className="book"
+onMouseOver={() => {
+console.log(title);
+}} >
+<img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+<h1 onClick={() => console.log(title)}>{title}</h1>
+<h4>{author}</h4>
+<h5 className="place">{place}</h5>
+<button type="button" onClick={clickHandler}>
+Reference Handler Exmaple
+</button>
+<button type="button" onClick={() => complexExample(author)}>
+More Complex Example
+</button>
+</article>
+);
+};
+
+<!-- Import and Export -->
+
+// import 1: index.js
+
+// Components
+import { books } from './books';
+import SpecificBook from './Book';
+import { greeting } from './testing/testing';
+
+// Mini Book Project
+
+function BookList() {
+console.log(greeting);
+return (
+
+<section className="booklist">
+{books.map((book) => {
+// const { img, title, author, place } = book;
+return <SpecificBook key={book.id} {...book}></SpecificBook>;
+})}
+</section>
+);
+}
+
+// import 2: books.js
+// Books array
+export const books = [
+{
+id: 1,
+img: 'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_424,h_238/v1474542171/qatgchfqx4in7h58ianu.jpg',
+author: 'Jose Maria Artillo',
+title: 'Hello World Book Title',
+place: 'London, United Kingdom',
+},
+
+{
+id: 2,
+img: 'https://media.gq.com/photos/5ad64204c8be07604e8b5f2f/3:2/w_1998,h_1332,c_limit/21-books-GQ-April-2018-041718-3x2.jpg',
+author: 'J.D. Salinger',
+title: 'Catcher of the Rye',
+place: 'Jacksonville, USA',
+},
+
+{
+id: 3,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'G.R.R.M',
+title: 'Game of Thrones',
+place: 'Westeros',
+},
+
+{
+id: 4,
+img: 'https://s26162.pcdn.co/wp-content/uploads/sites/2/2022/05/Book.jpg',
+author: 'T.R.R.M',
+title: 'House of the Dragon',
+place: "King's Landing",
+},
+];
+
+// import 3: Book.js
+import React from 'react';
+
+const Book = ({ img, title, author, place }) => {
+// Attribute, eventHandler
+// onClick, onMouseOver
+// setup handler as reference or inline function
+
+// simple function event handler example
+const clickHandler = (e) => {
+console.log(e);
+console.log(e.target);
+alert('Hello World');
+};
+
+// more complex event handler example
+const complexExample = (author) => {
+console.log(author);
+};
+
+return (
+
+<article
+className="book"
+onMouseOver={() => {
+console.log(title);
+}} >
+<img style={{ borderRadius: '5rem 2rem' }} src={img} alt="Book" />
+<h1 onClick={() => console.log(title)}>{title}</h1>
+<h4>{author}</h4>
+<h5 className="place">{place}</h5>
+<button type="button" onClick={clickHandler}>
+Reference Handler Exmaple
+</button>
+<button type="button" onClick={() => complexExample(author)}>
+More Complex Example
+</button>
+</article>
+);
+};
+
+export default Book;
+
+// import 4: importing testing folder => testing.js
+
+<!--  -->
